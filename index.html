@@ -1,99 +1,111 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>Alpine Slider</title>
-  <link rel="icon" href="./logo.svg" type="image/icon type">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Alpine Slider</title>
+    <link rel="icon" href="./logo.svg" type="image/icon type" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
 
-</head>
+  <body>
+    <h1 class="title">Alpine slider</h1>
+    <div class="slider" x-data="{start: true, end: false}">
+      <div
+        class="slider_content"
+        x-ref="slider"
+        x-on:scroll.debounce="$refs.slider.scrollLeft == 0 ? start = true : start = false; Math.abs(($refs.slider.scrollWidth - $refs.slider.offsetWidth) - $refs.slider.scrollLeft) < 5 ? end = true : end = false;"
+      >
+        <div class="slider_item">
+          <img class="slider_image" src="./card-1.jpg" alt="Image" />
+          <div class="slider_info">
+            <h2>Card 1</h2>
+          </div>
+        </div>
+        <div class="slider_item">
+          <img class="slider_image" src="./card-2.jpg" alt="Image" />
+          <div class="slider_info">
+            <h2>Card 2</h2>
+          </div>
+        </div>
+        <div class="slider_item">
+          <img class="slider_image" src="./card-3.jpg" alt="Image" />
+          <div class="slider_info">
+            <h2>Card 3</h2>
+          </div>
+        </div>
+        <div class="slider_item">
+          <img class="slider_image" src="./card-4.jpg" alt="Image" />
+          <div class="slider_info">
+            <h2>Card 4</h2>
+          </div>
+        </div>
+        <div class="slider_item">
+          <img class="slider_image" src="./card-5.jpg" alt="Image" />
+          <div class="slider_info">
+            <h2>Card 5</h2>
+          </div>
+        </div>
+        <div class="slider_item">
+          <img class="slider_image" src="./card-6.jpg" alt="Image" />
+          <div class="slider_info">
+            <h2>Card 6</h2>
+          </div>
+        </div>
+        <div class="slider_item">
+          <img class="slider_image" src="./card-7.jpg" alt="Image" />
+          <div class="slider_info">
+            <h2>Card 7</h2>
+          </div>
+        </div>
+        <div class="slider_item">
+          <img class="slider_image" src="./card-8.jpg" alt="Image" />
+          <div class="slider_info">
+            <h2>Card 8</h2>
+          </div>
+        </div>
+        <div class="slider_item">
+          <img class="slider_image" src="./card-9.jpg" alt="Image" />
+          <div class="slider_info">
+            <h2>Card 9</h2>
+          </div>
+        </div>
+        <div class="slider_item">
+          <img class="slider_image" src="./card-10.jpg" alt="Image" />
+          <div class="slider_info">
+            <h2>Card 10</h2>
+          </div>
+        </div>
+        <div class="slider_item">
+          <img class="slider_image" src="./card-11.jpg" alt="Image" />
+          <div class="slider_info">
+            <h2>Card 11</h2>
+          </div>
+        </div>
+      </div>
+      <div class="slider_navigation">
+        <button
+          class="slider_navigation_button"
+          x-on:click="$refs.slider.scrollBy({left: $refs.slider.offsetWidth * -1, behavior: 'smooth'});"
+          x-bind:class="start ? '' : 'slider_navigation_button--active'"
+        >
+          Previous
+        </button>
+        <button
+          class="slider_navigation_button"
+          x-on:click="$refs.slider.scrollBy({left: $refs.slider.offsetWidth, behavior: 'smooth'});"
+          x-bind:class="end ? '' : 'slider_navigation_button--active'"
+        >
+          Next
+        </button>
+      </div>
+    </div>
 
-<body>
-
-<h1 class="title">Alpine slider</h1>
-<div class="slider" x-data="{start: true, end: false}">
-  <div class="slider_content" x-ref="slider" x-on:scroll.debounce="$refs.slider.scrollLeft == 0 ? start = true : start = false; Math.abs(($refs.slider.scrollWidth - $refs.slider.offsetWidth) - $refs.slider.scrollLeft) < 5 ? end = true : end = false;">
-    <div class="slider_item">
-      <img class="slider_image" src="./card-1.jpg" alt="Image">
-      <div class="slider_info">
-        <h2>Card 1</h2>
-      </div>
-    </div>
-    <div class="slider_item">
-      <img class="slider_image" src="./card-2.jpg" alt="Image">
-      <div class="slider_info">
-        <h2>Card 2</h2>
-      </div>
-    </div>
-    <div class="slider_item">
-      <img class="slider_image" src="./card-3.jpg" alt="Image">
-      <div class="slider_info">
-        <h2>Card 3</h2>
-      </div>
-    </div>
-    <div class="slider_item">
-      <img class="slider_image" src="./card-4.jpg" alt="Image">
-      <div class="slider_info">
-        <h2>Card 4</h2>
-      </div>
-    </div>
-    <div class="slider_item">
-      <img class="slider_image" src="./card-5.jpg" alt="Image">
-      <div class="slider_info">
-        <h2>Card 5</h2>
-      </div>
-    </div>
-    <div class="slider_item">
-      <img class="slider_image" src="./card-6.jpg" alt="Image">
-      <div class="slider_info">
-        <h2>Card 6</h2>
-      </div>
-    </div>
-    <div class="slider_item">
-      <img class="slider_image" src="./card-7.jpg" alt="Image">
-      <div class="slider_info">
-        <h2>Card 7</h2>
-      </div>
-    </div>
-    <div class="slider_item">
-      <img class="slider_image" src="./card-8.jpg" alt="Image">
-      <div class="slider_info">
-        <h2>Card 8</h2>
-      </div>
-    </div>
-    <div class="slider_item">
-      <img class="slider_image" src="./card-9.jpg" alt="Image">
-      <div class="slider_info">
-        <h2>Card 9</h2>
-      </div>
-    </div>
-    <div class="slider_item">
-      <img class="slider_image" src="./card-10.jpg" alt="Image">
-      <div class="slider_info">
-        <h2>Card 10</h2>
-      </div>
-    </div>
-    <div class="slider_item">
-      <img class="slider_image" src="./card-11.jpg" alt="Image">
-      <div class="slider_info">
-        <h2>Card 11</h2>
-      </div>
-    </div>
-  </div>
-  <div class="slider_navigation">
-    <button class="slider_navigation_button" x-on:click="$refs.slider.scrollBy({left: $refs.slider.offsetWidth * -1, behavior: 'smooth'});" x-bind:class="start ? '' : 'slider_navigation_button--active'">Previous</button>
-    <button class="slider_navigation_button" x-on:click="$refs.slider.scrollBy({left: $refs.slider.offsetWidth, behavior: 'smooth'});" x-bind:class="end ? '' : 'slider_navigation_button--active'">Next</button>
-  </div>
-</div>
-
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.2/cdn.js'></script><script  src="./script.js"></script>
-
-</body>
-</html>
-
-  
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.2/cdn.js"></script>
+  </body>
 </html>
